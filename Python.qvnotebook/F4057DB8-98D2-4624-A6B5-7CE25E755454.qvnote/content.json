@@ -3,7 +3,15 @@
   "cells": [
     {
       "type": "markdown",
-      "data": "##创建项目\n\n```\nscrapy startproject tutorial\n```"
+      "data": "#scrapy命令\n\n##创建项目\n\n```\nscrapy startproject <project_name>\n```\n\n##启动项目\n```\nscrapy crawl <project_name>\n\nscrapy crawl <project_name> -o items.json //保存到json\n\n```\n\n\n##查看命令\n\n```\nscrapy -h\n```\n\n## 全局命令:\n\n* startproject\n* settings\n* runspider\n* shell `以给定的URL(如果给出)或者空(没有给出URL)启动Scrapy shell`\n* fetch\n  ```\n    $ scrapy fetch --nolog http://www.example.com/some/page.html\n    [ ... html content here ... ]\n  \n    $ scrapy fetch --nolog --headers http://www.example.com/\n    {'Accept-Ranges': ['bytes'],\n   'Age': ['1263   '],\n   'Connection': ['close     '],\n   'Content-Length': ['596'],\n   'Content-Type': ['text/html; charset=UTF-8'],\n   'Date': ['Wed, 18 Aug 2010 23:59:46 GMT'],\n   'Etag': ['\"573c1-254-48c9c87349680\"'],\n   'Last-Modified': ['Fri, 30 Jul 2010 15:30:18 GMT'],\n   'Server': ['Apache/2.2.3 (CentOS)']}\n  ```\n  \n* view  在浏览器中打开给定的URL，并以Scrapy spider获取到的形式展现。 \n* version\n\n项目(Project-only)命令:\n\n* crawl\n  ```\n    scrapy crawl myspider -a category=electronics\n  ```\n* check\n* list  列出当前项目中所有可用的spider。每行输出一个spider。\n* edit\n* parse\n* genspider   `scrapy genspider [-t template] <name> <domain> `\n  ```\n  $ scrapy genspider -l\n   Available templates:\n    basic\n    crawl\n    csvfeed\n    xmlfeed\n  \n  $ scrapy genspider -d basic\n  import scrapy\n  \n  class $classname(scrapy.Spider):\n      name = \"$name\"\n      allowed_domains = [\"$domain\"]\n      start_urls = (\n          'http://www.$domain/',\n          )\n  \n      def parse(self, response):\n          pass\n\n  $ scrapy genspider -t basic example example.com\n  Created spider 'example' using template 'basic' in module:\n    mybot.spiders.example\n\n  ```\n\n* deploy\n* bench\n\n"
+    },
+    {
+      "type": "markdown",
+      "data": "# Shell\n\n```\nscrapy shell \"\\<URL LINK\\>\"\n\n```\n\n###返回response\n\n```\nresponse.body\n\nresponse.header\n\n```\n\n###response.selector\n\n```\nIn [1]: sel.xpath('//title')\nOut[1]: [<Selector xpath='//title' data=u'<title>Open Directory - Computers: Progr'>]\n\nIn [2]: sel.xpath('//title').extract()\nOut[2]: [u'<title>Open Directory - Computers: Programming: Languages: Python: Books</title>']\n\nIn [3]: sel.xpath('//title/text()')\nOut[3]: [<Selector xpath='//title/text()' data=u'Open Directory - Computers: Programming:'>]\n\nIn [4]: sel.xpath('//title/text()').extract()\nOut[4]: [u'Open Directory - Computers: Programming: Languages: Python: Books']\n\nIn [5]: sel.xpath('//title/text()').re('(\\w+):')\nOut[5]: [u'Computers', u'Programming', u'Languages', u'Python']\n\n```"
+    },
+    {
+      "type": "markdown",
+      "data": "#问题\n\n[scrapy crawler caught exception reading instance data](http://stackoverflow.com/questions/31232681/scrapy-crawler-caught-exception-reading-instance-data)\n\nin the settings.py file: add following code settings:\n\nDOWNLOAD\\_HANDLERS = {'s3': None,}"
     }
   ]
 }

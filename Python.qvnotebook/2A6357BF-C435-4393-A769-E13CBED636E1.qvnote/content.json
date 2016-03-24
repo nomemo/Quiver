@@ -1,0 +1,9 @@
+{
+  "title": "UnicodeEncodeError: 'ascii' codec can't encode characters in position",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "今天把一个列表转换成字符串输出的时候出现了UnicodeEncodeError: 'ascii' codec can't encode characters in position 32-34: ordinal not in range(128)问题，使用的是ulipad编译器。\n\n##解决方法1：\n\n在开头加上\n\n```python\nimport sys\nreload(sys)\nsys.setdefaultencoding( \"utf-8\" )\n```\n\n##解决方法2：\n\n使用cmd运行python程序，能正常显示结果\n\n\n##可能原因：\n\n本身就不是String类型"
+    }
+  ]
+}

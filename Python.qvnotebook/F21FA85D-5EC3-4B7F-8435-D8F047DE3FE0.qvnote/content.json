@@ -1,0 +1,10 @@
+{
+  "title": "正则表达式",
+  "cells": [
+    {
+      "type": "code",
+      "language": "python",
+      "data": "import re\n\ncheckString = '123123'\nself.codePattern = re.compile(r'\\(\\d+\\)')\nfetchString = self.codePattern.match(checkString).group()\n"
+    }
+  ]
+}
