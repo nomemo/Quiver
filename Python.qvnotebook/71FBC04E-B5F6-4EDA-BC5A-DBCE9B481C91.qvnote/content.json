@@ -1,0 +1,10 @@
+{
+  "title": "SQL",
+  "cells": [
+    {
+      "type": "code",
+      "language": "python",
+      "data": "\tdef testFunc(self):\n\t\tcursor = self.dbconnection.cursor()    \n\t\t#删除表\n\t\tsql = \"drop table if exists user\"\n\t\tcursor.execute(sql)\n\t\t#创建\n\t\tsql = \"create table if not exists user(name varchar(128) primary key, created int(10))\"\n\t\tcursor.execute(sql)\n\t\t#写入    \n\t\tsql = \"insert into user(name,created) values(%s,%s)\"   \n\t\tparam = (\"aaa\",int(time.time()))    \n\t\tn = cursor.execute(sql,param)    \n\t\tprint 'insert',n    \n\t\t#写入多行    \n\t\tsql = \"insert into user(name,created) values(%s,%s)\"   \n\t\tparam = ((\"bbb\",int(time.time())), (\"ccc\",33), (\"ddd\",44) )\n\t\tn = cursor.executemany(sql,param)    \n\t\tprint 'insertmany',n    \n\t\t# #更新    \n\t\tparam = 'zzz'    \n\t\tn = cursor.execute(\"update user set name=%s where name='aaa'\" ,[param])    \n\t\tprint 'update',n    \n\t\t#查询    \n\t\tn = cursor.execute(\"select * from user\")    \n\t\tfor row in cursor.fetchall():    \n\t\t    print row\n\t\t    for r in row:    \n\t\t        print r    \n\t\t# #删除    \n\t\tsql = \"delete from user where name=%s\"   \n\t\tparam =\"bbb\"    \n\t\tn = cursor.execute(sql,[param])    \n\t\tprint 'delete',n    \n\t\t# #查询    \n\t\tn = cursor.execute(\"select * from user\")    \n\t\tprint cursor.fetchall()    \n\t\tcursor.close()    \t\n\t\tself.dbconnection.commit()"
+    }
+  ]
+}
