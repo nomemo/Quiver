@@ -17,7 +17,7 @@
     {
       "type": "code",
       "language": "python",
-      "data": "result = {}\n\nfor i in range(1, nrows):\n\tschool = table.row(i)[0].value\n\tcode = table.row(i)[2].value\n\tresult[school] = int(code)\n\njsonContent = JSONEncoder().encode(result)\nfileName = \"schoolLocation.json\"\nfp = open(fileName, 'w+')\nfp.write(jsonContent)\nfp.close()\n"
+      "data": "import json\n\nwith open('tagDict.json', 'w') as f:\n  f.write(json.dumps(tagDict))"
     }
   ]
 }

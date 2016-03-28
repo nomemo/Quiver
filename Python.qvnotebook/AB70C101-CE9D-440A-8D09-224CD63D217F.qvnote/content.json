@@ -1,0 +1,13 @@
+{
+  "title": "Scrapy Command",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h1>JAVBUS</h1><p style=\"margin: 0px; font-size: 14px; line-height: normal; font-family: Menlo; color: rgb(245, 245, 245); background-color: rgb(0, 0, 0);\"><br></p><p style=\"margin: 0px; font-size: 14px; line-height: normal; font-family: Menlo; color: rgb(245, 245, 245); background-color: rgb(0, 0, 0);\">scrapy crawl bus -o \"bus.csv\" -s JOBDIR=crawls/bus&nbsp;</p>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

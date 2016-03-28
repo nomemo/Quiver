@@ -1,0 +1,14 @@
+{
+  "title": "关于编码",
+  "cells": [
+    {
+      "type": "code",
+      "language": "python",
+      "data": ">>> s1 = u'Hello'\n>>> s2 = unicode(\"Hello\")\n>>> type(s1), type(s2)\n(<type 'unicode'>, <type 'unicode'>)\n>>> s1==s2\nTrue\n>>> \n>>> s3='Hello'.decode('utf-8')\n>>> type(s3)\n<type 'unicode'>\n>>> s1==s3\nTrue\n>>> \n"
+    },
+    {
+      "type": "text",
+      "data": "u’Hello’ 生成的是unicode<div><br></div><div>‘Helloe’.decode(‘utf-8’) &nbsp;生成的是unicode</div><div><br></div><div><br></div>"
+    }
+  ]
+}
